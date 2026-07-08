@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
+    <title>MovieCast</title>
     <link rel="stylesheet" href="styles.css" />
     <script
       src="https://kit.fontawesome.com/23dbb71f75.js"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
-    <script src="movies.js"></script>
+   <script src="./index.js" defer ></script>
   </head>
 
   <body id="movies__body">
@@ -59,11 +58,10 @@
               <h2 class="section__title movies__header--title">
                 All <span class="secondary">Movies</span>
               </h2>
-              <select id="filter" onchange="filterBooks(event)">
+              <select id="filter" onchange="filterMovies(event)">
                 <option value="" disabled selected>Sort</option>
-                <option value="LOW_TO_HIGH">Price, Low to High</option>
-                <option value="HIGH_TO_LOW">Price, High to Low</option>
-                <option value="RATING">Rating</option>
+                <option value="oldest-newest">Oldest to Newest</A-Z></option>
+                <option value="newest-oldest">Newest to Oldest</option>
               </select>
             </div>
             <div class="movies">

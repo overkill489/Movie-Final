@@ -2,12 +2,20 @@
 // http://img.omdbapi.com/?apikey=[7597afd]&
 // https://www.omdbapi.com/?apikey=7597afd&s=fast
 
+const movieListEl = document.querySelector(".movie-list");
+
 async function movies() {
   const data = await fetch(`https://www.omdbapi.com/?apikey=7597afd&s=fast`);
   const moviesData = await data.json();
-  moviesData
+ movieListEl.innerHTML = moviesData
     .map(
-      (movie) => ` <div class="movie">
+      (movie) => movieHTML(movie)).join("");
+}
+
+movies();
+
+function movieHTML(movie) {
+    return  ` <div class="movie">
                 <figure class="movie__img--wrapper">
                   <img
                     class="movie__img"
@@ -19,9 +27,5 @@ async function movies() {
                 <div class="movie__year">
                   ${movie.year}
                 </div>
-              </div>`,
-    )
-    .join("");
+              </div>`
 }
-
-movies();
