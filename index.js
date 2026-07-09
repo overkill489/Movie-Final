@@ -2,7 +2,7 @@
 // http://img.omdbapi.com/?apikey=[7597afd]&
 // https://www.omdbapi.com/?apikey=7597afd&s=fast
 
-const movieListEl = document.querySelector(".movie-list");
+const movieListEl = document.querySelector(".movies");
 
 async function movies() {
   const data = await fetch(`https://www.omdbapi.com/?apikey=7597afd&s=fast`);
