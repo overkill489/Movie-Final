@@ -52,14 +52,14 @@ search-bar
 */
 
 const searchInput = document.getElementById('site-search');
-const movies = document.querySelectorAll('.movie');
+const movieCards = document.querySelectorAll('.movie');
 const noResultsMessage = document.getElementById('no-results-message');
 
 searchInput.addEventListener('input', (event) => {
   const filterText = event.target.value.toLowerCase();
   let hasMatches = false;
 
-   movies.forEach((movie) => {
+   movieCards.forEach((movie) => {
     const movieText = movie.textContent.toLowerCase();
 
     if (movieText.includes(filterText)) {
@@ -79,8 +79,7 @@ searchInput.addEventListener('input', (event) => {
         movie.removeEventListener('transitionend', handleHide);
       });
     }
-  });
-
+  })
 
   if (hasMatches) {
     noResultsMessage.style.display = 'none';
