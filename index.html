@@ -63,6 +63,13 @@
                 <option value="oldest-newest">Oldest to Newest</A-Z></option>
                 <option value="newest-oldest">Newest to Oldest</option>
               </select>
+              <search>
+  <form action="/search-results" class="search-form" method="GET">
+    <input class="search-input" type="search" id="site-search" name="q" placeholder="Search the site..." aria-label="Search through site content">
+    <button class="search-button" type="submit">Search</button>
+  </form>
+</search>
+
             </div>
             <div class="movies">
               <i class="fas fa-spinner movies__loading--spinner"></i>

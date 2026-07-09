@@ -44,3 +44,47 @@ function movieHTML(movie) {
             </div>
           </div>`;
 }
+
+/*
+
+search-bar
+
+*/
+
+const searchInput = document.getElementById('site-search');
+const movies = document.querySelectorAll('.movie');
+const noResultsMessage = document.getElementById('no-results-message');
+
+searchInput.addEventListener('input', (event) => {
+  const filterText = event.target.value.toLowerCase();
+  let hasMatches = false;
+
+   movies.forEach((movie) => {
+    const movieText = movie.textContent.toLowerCase();
+
+    if (movieText.includes(filterText)) {
+      hasMatches = true;
+      
+   
+      if (movie.classList.contains('hidden')) {
+        movie.classList.remove('hidden');
+        setTimeout(() => movie.classList.remove('fade-out'), 10);
+      }
+    } else {
+      movie.classList.add('fade-out');
+      movie.addEventListener('transitionend', function handleHide() {
+        if (movie.classList.contains('fade-out')) {
+          movie.classList.add('hidden');
+        }
+        movie.removeEventListener('transitionend', handleHide);
+      });
+    }
+  });
+
+
+  if (hasMatches) {
+    noResultsMessage.style.display = 'none';
+  } else {
+    noResultsMessage.style.display = 'block';
+  }
+});
